@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @if (session('deleted'))
+            <div class="alert alert-success">
+               Il post <strong>'{{ session('deleted') }}'</strong> e' stato eliminato con successo!
+            </div>            
+        @endif
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -22,7 +27,13 @@
                         <td>{{ $post->created_at }}</td>
                         <td><a class="btn btn-primary" href="{{ route('admin.posts.show', $post->id)}}">SHOW</a></td>
                         <td><a class="btn btn-success" href="{{ route('admin.posts.edit', $post->id)}}">EDIT</a></td>
-                        <td><a class="btn btn-danger" href="">DELETE</a></td>
+                        <td>
+                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')                                
+                                <button type="submit" class="btn btn-danger">DELETE</button>                            
+                            </form>
+                        </td>
                 @endforeach
             </tbody>
         </table>
