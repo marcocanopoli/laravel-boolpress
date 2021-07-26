@@ -28,4 +28,5 @@ Route::middleware('auth')
 
 
 //guest
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
+Route::get('{any?}', 'HomeController@index')->where('any', '.*')->name('home');

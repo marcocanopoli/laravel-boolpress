@@ -4,10 +4,28 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Post;
 
 class PostController extends Controller
 {
+    private function getSlug($data) {
+        $slug = Str::slug($data["title"], '-');
+
+        $existingPost = Post::where('slug', $slug)->first();
+
+        $slugString = $slug;
+        $counter = 1;
+
+        while($existingPost) {
+            $slug = $slugString . "-" . $counter;
+            $existingPost = Post::where('slug', $slug)->first();
+            $counter++;
+        }
+
+        return $slug;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +45,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -38,7 +56,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        
+        $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'content' => 'required'
+        ]
+        );
+        
+        $newPost = new Post();
+
+        $slug = $this->getSlug($data);
+        $data['slug'] = $slug;
+
+        $newPost->fill($data);
+        $newPost->save();
+
+        return redirect()->route('admin.posts.show', $newPost->id);
     }
 
     /**
@@ -58,7 +93,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
         //
     }

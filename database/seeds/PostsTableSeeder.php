@@ -18,7 +18,11 @@ class PostsTableSeeder extends Seeder
             $newPost = new Post();
             $newPost->title = $faker->sentence();
             $newPost->author = $faker->name();
-            $newPost->content = $faker->text(5000);
+            $paragraphs = $faker->paragraphs(rand(3, 10));
+            foreach ($paragraphs as $paragraph) {
+                $newPost->content .= '<p>' . $paragraph . '</p>';
+            }
+            // $newPost->content = $faker->paragraphs(10, true);
             $newPost->slug = Str::slug($newPost->title, '-');
 
             $newPost->save();

@@ -20,8 +20,8 @@
                         <td>{{ $post->author }}</td>
                         <td>{{ $post->slug }}</td>
                         <td>{{ $post->created_at }}</td>
-                        <td><a class="btn btn-success" href="{{ route('admin.posts.show', $post->id)}}">SHOW</a></td>
-                        <td><a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id)}}">EDIT</a></td>
+                        <td><a class="btn btn-primary" href="{{ route('admin.posts.show', $post->id)}}">SHOW</a></td>
+                        <td><a class="btn btn-success" href="{{ route('admin.posts.edit', $post->id)}}">EDIT</a></td>
                         <td><a class="btn btn-danger" href="">DELETE</a></td>
                 @endforeach
             </tbody>
