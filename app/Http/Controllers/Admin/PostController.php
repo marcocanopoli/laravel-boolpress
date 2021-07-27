@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
+    private $validationRules = [
+        'title' => 'required|max:255',
+        'author' => 'required|max:255',
+        'content' => 'required',
+        'category_id' => 'nullable|exists:categories,id'
+    ];
+
     private function getSlug($data) {
         $slug = Str::slug($data["title"], '-');
 
@@ -45,7 +53,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -58,12 +67,7 @@ class PostController extends Controller
     {
         $data = $request->all();
         
-        $request->validate([
-            'title' => 'required|max:255',
-            'author' => 'required|max:255',
-            'content' => 'required'
-        ]
-        );
+        $request->validate($this->validationRules);
         
         $newPost = new Post();
 
@@ -73,7 +77,9 @@ class PostController extends Controller
         $newPost->fill($data);
         $newPost->save();
 
-        return redirect()->route('admin.posts.show', $newPost->id);
+        return redirect()
+            ->route('admin.posts.show', $newPost->id)
+            ->with('created', $newPost->title);
     }
 
     /**
@@ -95,7 +101,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -107,7 +114,22 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $data = $request->all();
+        
+        $request->validate($this->validationRules);
+        
+        if($post->title != $data["title"]) {
+            $slug = $this->getSlug($data);
+
+            $data["slug"] = $slug;
+        }
+        
+        $post->update($data);
+
+        return redirect()
+            ->route('admin.posts.show', $post->id)
+            ->with('updated', $post->title);
     }
 
     /**

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <h1 class="my-4">Modifica di: <span class="text-info">{{ $post->title }}</span></h1>
     {{-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -10,19 +11,20 @@
                 </ul>
             </div>
         @endif --}}
-    <form action="{{ route('admin.posts.store') }}" class="form" method="POST">
+    <form action="{{ route('admin.posts.update', $post->id) }}" method="POST">
         @csrf
+        @method('PATCH')
 
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Enter title" value="{{ old('title') }}">
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Enter title" value="{{ $post->title }}">
             @error('title')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
             <label for="author">Author</label>
-            <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" name="author" placeholder="Enter author" value="{{ old('author') }}">
+            <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" name="author" placeholder="Enter author" value="{{ $post->author }}">
             @error('author')
             <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -33,7 +35,7 @@
                 <option value="">-- Category --</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}" 
-                        {{ ($category->id == old('category_id')) ? 'selected' : '' }}>
+                        {{ ($category->id == old('category_id', $post->category_id)) ? 'selected' : '' }}>
                         {{ $category->name }}</option>
                 @endforeach
             </select>
@@ -43,12 +45,12 @@
         </div>
         <div class="form-group">
             <label for="content">Content</label>
-            <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content"  rows="6" placeholder="Enter post content">{{ old('content') }}</textarea>
+            <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content"  rows="6" placeholder="Enter post content">{{ $post->content }}</textarea>
             @error('content')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Save</button>
         <a class="btn btn-secondary ml-2" href="{{ route('admin.posts.index') }}">ALL POSTS</a>
     </form>
 </div>

@@ -10,6 +10,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Category</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Slug</th>
@@ -20,7 +21,12 @@
             <tbody>
                 @foreach ($posts as $post)
                     <tr>
-                        <td>{{ $post->id }}</td>
+                        <td>{{ $post->id }}
+                        <td>
+                            @if ($post->category)
+                                {{ $post->category->name }}
+                            @endif
+                        </td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->author }}</td>
                         <td>{{ $post->slug }}</td>
