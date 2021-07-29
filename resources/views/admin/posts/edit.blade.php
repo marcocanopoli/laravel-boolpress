@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h1 class="my-4">Modifica di: <span class="text-info">{{ $post->title }}</span></h1>
+    <h1 class="my-4">Modifica del post: <br><span class="text-info">{{ $post->title }}</span></h1>
     {{-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

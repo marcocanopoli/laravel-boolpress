@@ -10942,3 +10942,12 @@ a.text-dark:focus {
   }
 }
 
+.my-alert {
+  margin-left: -15px;
+}
+
+.badge-purple {
+  background-color: #9561e2;
+  color: #fff;
+}
+

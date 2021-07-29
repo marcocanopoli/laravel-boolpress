@@ -14,11 +14,11 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         $categories = [
-            'music',
-            'cinema',
-            'art',
-            'videogames',                        
-            'technology'
+            'Music',
+            'Cinema',
+            'Art',
+            'Videogames',                        
+            'Technology'
         ];
 
         foreach ($categories as $category) {
