@@ -34,16 +34,16 @@ export default {
     .front-header {
         height: 60px;
         padding: 5px 10px;
-        background-color: plum;
-        color: #000;
+        background-color: #9561e2;
+        color: #fff;
         border-radius: 0 0 15px 15px;
 
         a {
             text-decoration: none;
-            color: black;
+            color: #fff;
 
             &:hover {
-                color: #fff;
+                color: #000;
             }
         }
 

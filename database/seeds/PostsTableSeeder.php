@@ -16,12 +16,10 @@ class PostsTableSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++){
             $newPost = new Post();
+            $newPost->imgUrl = $faker->imageUrl(640, 480);
             $newPost->title = $faker->sentence();
             $newPost->author = $faker->name();
-            $paragraphs = $faker->paragraphs(rand(3, 10));
-            foreach ($paragraphs as $paragraph) {
-                $newPost->content .= '<p>' . $paragraph . '</p>';
-            }
+            $newPost->content = $faker->paragraph(rand(10, 50), false);
             // $newPost->content = $faker->paragraphs(10, true);
             $newPost->slug = Str::slug($newPost->title, '-');
 

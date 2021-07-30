@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.back')
 @section('content')
 <div class="container">
     <h1 class="my-4">Modifica del post: <br><span class="text-info">{{ $post->title }}</span></h1>

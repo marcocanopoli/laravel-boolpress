@@ -1,24 +1,27 @@
 <template>
     <div class="container">
         <the-front-header />
-        <the-welcome />
+        <h1 class="welcome">Welcome to BoolPress!</h1>
+        <posts />
     </div>
 </template>
 
 <script>
 import TheFrontHeader from './components/TheFrontHeader.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Posts from './components/Posts.vue'
 
 export default {
     name: 'App',
     components:  {
         TheFrontHeader, 
-        TheWelcome,
-        TheFrontHeader 
+        Posts 
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    
+    .welcome {
+        padding-top: 30px;
+        text-align: center;
+    }
 </style>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.back')
 @section('content')
 <div class="container mt-4">
 
@@ -30,6 +30,9 @@
             <div class="my-2">
                 <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id) }}">EDIT</a>
                 <a class="btn btn-secondary ml-2" href="{{ route('admin.posts.index') }}">ALL POSTS</a>
+            </div>
+            <div>
+                <img src="{{ $post->imgUrl }}" alt="">
             </div>
             <div>{!! $post->content !!}</div>
 
