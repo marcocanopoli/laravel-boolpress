@@ -1,20 +1,17 @@
 <template>
-    <header class="front-header">
+    <header class="my-header">
         <ul class="menu">
             <li id="logo">
                 <img src="https://www.boolean.careers/images/misc/logo-small.png" alt="logo">
             </li>
             <li>
-                <a href="/">Home</a>
+                <router-link :to="{ name: 'home' }">Home</router-link>
             </li>
             <li>
-                <a href="/about">About</a>
+                <router-link :to="{ name: 'blog' }">Blog</router-link>
             </li>
             <li>
-                <a href="/shop">Shop</a>
-            </li>
-            <li>
-                <a href="/account">My Account</a>
+                <router-link :to="{ name: 'about' }">About</router-link>
             </li>
             <li>
                 <a href="/admin">Admin</a>
@@ -25,14 +22,15 @@
 
 <script>
 export default {
-    name: 'TheFrontHeader'
+    name: 'TheHeader'
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+    @import '../../sass/front/variables.scss';
 
-    .front-header {
-        height: 60px;
+    .my-header {
+        height: $headerHeight;
         padding: 5px 10px;
         background-color: #9561e2;
         color: #fff;

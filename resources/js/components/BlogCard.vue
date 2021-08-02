@@ -6,13 +6,13 @@
             <h3>{{ post.title }}</h3>
         </div>
         <p>{{ getExcerpt(post.content) }}</p>
-        <a href="" class="button">Read article</a>
+        <router-link class="button" :to="{ name: 'blog-post', params: { slug: post.slug} }">Read article</router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'PostsCard',
+    name: 'BlogCard',
     props: {
         post: Object
     },

@@ -1,8 +1,11 @@
 <template>
-    <div class="posts">
-        <posts-card 
-            v-for="post in posts" :key="post.id"
-            :post="post"/>
+    <div class="blog">
+        <h1>Blog</h1>
+
+        <div class="posts" v-if="!loading && posts.length > 0">
+            <blog-card
+                v-for="post in posts" :key="post.id"
+                :post="post"/>
             <div class="pagination">
                 <button type="button" 
                     class="pag-button"
@@ -24,33 +27,46 @@
                     @click="getPosts(current_page + 1)">Next
                 </button>
             </div>
+        </div>
+
+        <div v-else-if="!loading && posts.length == 0"></div>
+
+        <v-loader v-else></v-loader>
+
     </div>
 </template>
 
 <script>
-import PostsCard from './PostsCard.vue';
+import axios from 'axios';
+import BlogCard from '../components/BlogCard.vue';
+import VLoader from '../components/VLoader.vue';
+
 export default {
-    name: 'Posts',
+    name: 'PageBlog',
     components: {
-        PostsCard
+        BlogCard,
+        VLoader
     },
     data() {
         return {
             posts: [],
             current_page: 1,
-            last_page: 1
+            last_page: 1,
+            loading: true
         }
     },
     methods: {
         getPosts(page = 1) {
+            this.loading = true;
+
             axios
             .get(`http://127.0.0.1:8000/api/posts?page=${page}`)
             .then(
                 res => {
                     this.posts = res.data.data;
                     this.current_page = res.data.current_page; 
-                    this.last_page = res.data.last_page; 
-                    console.log(res.data);             
+                    this.last_page = res.data.last_page;
+                    this.loading = false;         
                 }
             )
             .catch(
@@ -66,15 +82,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
     .posts {
         display: flex;
         flex-wrap: wrap;
         padding: 30px 0;
-
-        h1 {
-            padding: 30px 0;
-        }
 
         .pagination {
             width: 100%;

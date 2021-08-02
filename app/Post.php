@@ -14,6 +14,11 @@ class Post extends Model
         'slug'
     ];
 
+    protected $with = [
+        'category',
+        'tags'
+    ];
+
     public function category() {
         return $this->belongsTo('App\Category');
     }

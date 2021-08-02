@@ -1,0 +1,12 @@
+@mixin flex-center ($value: 'both') {
+    display: flex;
+
+    @if ($value =='both') {
+        justify-content: center;
+        align-items: center;
+    } @else if ($value == 'main') {
+        justify-content: center;
+    } @else if ($value == 'cross') {
+        align-items: center;
+    }
+}
