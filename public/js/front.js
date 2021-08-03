@@ -2104,9 +2104,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -2158,6 +2155,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_VLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/VLoader.vue */ "./resources/js/components/VLoader.vue");
 /* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router.js */ "./resources/js/router.js");
+//
+//
 //
 //
 //
@@ -2270,7 +2269,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".body-wrapper {\n  height: 100%;\n}\n.body-wrapper main {\n  padding-top: 45px;\n  height: calc(100% - 60px);\n}", ""]);
+exports.push([module.i, ".body-wrapper main {\n  padding-top: 45px;\n  height: calc(100% - 60px);\n}", ""]);
 
 // exports
 
@@ -2289,7 +2288,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".post[data-v-73695a3d] {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: calc((100% / 3) - 40px);\n  padding: 15px;\n  margin: 20px;\n  background-color: rgba(149, 97, 226, 0.3);\n  border-radius: 15px;\n}\n.post .author[data-v-73695a3d] {\n  font-style: italic;\n}\n.post a[data-v-73695a3d] {\n  color: #000;\n}\n.post h3[data-v-73695a3d] {\n  position: absolute;\n  bottom: 15px;\n  left: 15px;\n  color: #fff;\n}\n.post .img-box[data-v-73695a3d] {\n  position: relative;\n  margin: 15px 0;\n  overflow: hidden;\n}\n.post .img-box img[data-v-73695a3d] {\n  width: 100%;\n  border-radius: 5px;\n}\n.post .button[data-v-73695a3d] {\n  margin-top: 15px;\n  padding: 10px;\n  background-color: #fff;\n  color: #9561e2;\n  font-weight: 700;\n  border-radius: 5px;\n  text-decoration: none;\n  text-transform: uppercase;\n}", ""]);
+exports.push([module.i, ".post[data-v-73695a3d] {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: calc((100% / 3) - 40px);\n  padding: 15px;\n  margin: 0 20px 40px;\n  background-color: #fff;\n  border-radius: 15px;\n  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);\n}\n.post .author[data-v-73695a3d] {\n  font-style: italic;\n  color: #000;\n}\n.post .img-box[data-v-73695a3d] {\n  position: relative;\n  margin: 15px 0;\n  overflow: hidden;\n  border-radius: 5px;\n}\n.post .img-box h3[data-v-73695a3d] {\n  position: absolute;\n  padding: 10px 15px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  color: #fff;\n  background-color: rgba(0, 0, 0, 0.8);\n  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);\n}\n.post .img-box img[data-v-73695a3d] {\n  display: block;\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -2308,7 +2307,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".my-header {\n  height: 60px;\n  padding: 5px 10px;\n  background-color: #9561e2;\n  color: #fff;\n  border-radius: 0 0 15px 15px;\n}\n.my-header a {\n  text-decoration: none;\n  color: #fff;\n}\n.my-header a:hover {\n  color: #000;\n}\n.my-header .menu {\n  display: flex;\n  align-items: center;\n  list-style: none;\n  height: 100%;\n}\n.my-header .menu li {\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding: 0 5px;\n}\n.my-header .menu #logo {\n  flex-grow: 1;\n}\n.my-header .menu #logo img {\n  height: 80%;\n}", ""]);
+exports.push([module.i, ".my-header {\n  height: 60px;\n  padding: 5px 10px;\n  background-color: #9561e2;\n  color: #fff;\n  border-radius: 0 0 15px 15px;\n  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);\n}\n.my-header a {\n  text-decoration: none;\n  color: #fff;\n}\n.my-header a:hover {\n  color: #000;\n}\n.my-header .menu {\n  display: flex;\n  align-items: center;\n  list-style: none;\n  height: 100%;\n}\n.my-header .menu li {\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding: 0 5px;\n}\n.my-header .menu #logo {\n  flex-grow: 1;\n}\n.my-header .menu #logo img {\n  height: 80%;\n}", ""]);
 
 // exports
 
@@ -2365,7 +2364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".posts {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 30px 0;\n}\n.posts .pagination {\n  width: 100%;\n  text-align: center;\n}\n.posts .pagination .pag-button {\n  cursor: pointer;\n  background-color: #9561e2;\n  color: #fff;\n  padding: 5px 10px;\n  margin: 0 5px;\n  border-radius: 5px;\n  font-size: 18px;\n  font-weight: 500;\n}\n.posts .pagination .pag-button:hover {\n  text-decoration: underline;\n}\n.posts .pagination .disabled-button {\n  background-color: grey;\n  cursor: default;\n}\n.posts .pagination .disabled-button:hover {\n  text-decoration: none;\n}\n.posts .pagination .focus-button {\n  background-color: dodgerblue;\n}", ""]);
+exports.push([module.i, ".blog {\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 15px;\n  padding-bottom: 30px;\n}\n.blog .posts {\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
 
 // exports
 
@@ -2384,7 +2383,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".tags {\n  margin: 15px 0;\n}\n.post-content {\n  margin-top: 30px;\n}", ""]);
+exports.push([module.i, ".blog-post {\n  background-color: rgba(0, 0, 0, 0.8);\n  border-radius: 15px;\n  padding: 30px;\n}\n.blog-post .tags {\n  margin: 15px 0;\n}\n.blog-post .post-img {\n  margin-top: 15px;\n}\n.blog-post .post-content {\n  margin: 30px 0;\n  color: #fff;\n}", ""]);
 
 // exports
 
@@ -2403,7 +2402,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".welcome {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}", ""]);
+exports.push([module.i, ".welcome h1 {\n  color: #fff;\n  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);\n}", ""]);
 
 // exports
 
@@ -3780,7 +3779,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container body-wrapper" },
+    { staticClass: "body-wrapper" },
     [_c("the-header"), _vm._v(" "), _c("main", [_c("router-view")], 1)],
     1
   )
@@ -3811,9 +3810,7 @@ var render = function() {
     "div",
     { staticClass: "post" },
     [
-      _c("a", { staticClass: "author", attrs: { href: "" } }, [
-        _vm._v(_vm._s(_vm.post.author))
-      ]),
+      _c("span", { staticClass: "author" }, [_vm._v(_vm._s(_vm.post.author))]),
       _vm._v(" "),
       _c("div", { staticClass: "img-box" }, [
         _c("img", { attrs: { src: _vm.post.imgUrl, alt: "" } }),
@@ -3857,7 +3854,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { staticClass: "my-header" }, [
+  return _c("header", { staticClass: "my-header container" }, [
     _c("ul", { staticClass: "menu" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -3944,7 +3941,11 @@ var render = function() {
       _c(
         "svg",
         {
-          staticStyle: { margin: "auto", background: "#fff", display: "block" },
+          staticStyle: {
+            margin: "auto",
+            background: "transparent",
+            display: "block"
+          },
           attrs: {
             xmlns: "http://www.w3.org/2000/svg",
             "xmlns:xlink": "http://www.w3.org/1999/xlink",
@@ -4017,7 +4018,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "about" }, [
-      _c("h1", { staticClass: "big-title" }, [_vm._v("About Us")])
+      _c("h1", [_vm._v("About Us")])
     ])
   }
 ]
@@ -4046,12 +4047,14 @@ var render = function() {
     "div",
     { staticClass: "blog" },
     [
-      _c("h1", [_vm._v("Blog")]),
+      !_vm.loading && _vm.posts.length > 0
+        ? _c("h1", [_vm._v("Blog")])
+        : _vm._e(),
       _vm._v(" "),
       !_vm.loading && _vm.posts.length > 0
         ? _c(
             "div",
-            { staticClass: "posts" },
+            { staticClass: "posts container" },
             [
               _vm._l(_vm.posts, function(post) {
                 return _c("blog-card", { key: post.id, attrs: { post: post } })
@@ -4123,8 +4126,6 @@ var render = function() {
             ],
             2
           )
-        : !_vm.loading && _vm.posts.length == 0
-        ? _c("div")
         : _c("v-loader")
     ],
     1
@@ -4153,34 +4154,50 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return !_vm.loading
-    ? _c("section", { staticClass: "blog-post" }, [
-        _vm.post.category.name
-          ? _c("span", { staticClass: "badge" }, [
-              _vm._v(_vm._s(_vm.post.category.name))
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("h1", { staticClass: "post-title" }, [
-          _vm._v(_vm._s(_vm.post.title))
-        ]),
-        _vm._v(" "),
-        _vm.post.tags.length > 0
-          ? _c(
-              "div",
-              { staticClass: "tags" },
-              _vm._l(_vm.post.tags, function(tag) {
-                return _c("span", { key: tag.id, staticClass: "pill" }, [
-                  _vm._v(_vm._s(tag.name))
-                ])
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("p", { staticClass: "post-content" }, [
-          _vm._v(_vm._s(_vm.post.content))
-        ])
-      ])
+    ? _c(
+        "section",
+        { staticClass: "blog-post container" },
+        [
+          _vm.post.category.name
+            ? _c("span", { staticClass: "badge" }, [
+                _vm._v(_vm._s(_vm.post.category.name))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("h1", { staticClass: "post-title" }, [
+            _vm._v(_vm._s(_vm.post.title))
+          ]),
+          _vm._v(" "),
+          _vm.post.tags.length > 0
+            ? _c(
+                "div",
+                { staticClass: "tags" },
+                _vm._l(_vm.post.tags, function(tag) {
+                  return _c("span", { key: tag.id, staticClass: "pill" }, [
+                    _vm._v(_vm._s(tag.name))
+                  ])
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "post-img",
+            attrs: { src: _vm.post.imgUrl, alt: "post-img" }
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "post-content" }, [
+            _vm._v(_vm._s(_vm.post.content))
+          ]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "badge button", attrs: { to: { name: "blog" } } },
+            [_vm._v("Blog")]
+          )
+        ],
+        1
+      )
     : _vm.loading
     ? _c("v-loader")
     : _vm._e()
@@ -4214,7 +4231,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "welcome" }, [
+    return _c("section", { staticClass: "welcome container" }, [
       _c("h1", [_vm._v("Welcome to BoolPress!")])
     ])
   }
@@ -4248,11 +4265,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "not-found" }, [
-      _c("h1", { staticClass: "big-title" }, [
-        _vm._v("404"),
-        _c("br"),
-        _vm._v("Not Found")
-      ])
+      _c("h1", [_vm._v("404"), _c("br"), _vm._v("Not Found")])
     ])
   }
 ]

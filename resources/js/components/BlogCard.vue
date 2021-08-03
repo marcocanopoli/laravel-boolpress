@@ -1,6 +1,6 @@
 <template>
     <div class="post">
-        <a href="" class="author">{{ post.author }}</a>
+        <span class="author">{{ post.author }}</span>
         <div class="img-box">
             <img :src="post.imgUrl" alt="">
             <h3>{{ post.title }}</h3>
@@ -35,45 +35,38 @@ export default {
         align-items: flex-start;
         width: calc((100% / 3) - 40px);
         padding: 15px;
-        margin: 20px;
-        background-color: rgba(149, 97, 226, 0.3);
+        margin: 0 20px 40px;
+        background-color: #fff;
         border-radius: 15px;
+        box-shadow: 0px 10px 10px rgba(0, 0 , 0, 0.5);
 
         .author {
             font-style: italic;
-        }
-
-        a {
             color: #000;
         }
 
-        h3 {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            color: #fff;
-        }
 
         .img-box {
             position: relative;
             margin: 15px 0;
             overflow: hidden;
+            border-radius: 5px;
+
+            h3 {
+                position: absolute;
+                padding: 10px 15px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                color: #fff;
+                background-color: rgba(0, 0 , 0, 0.8);
+                text-shadow: 0px 0px 10px rgba(0, 0 , 0, 0.8);
+            }
 
             img {
-                width: 100%;
-                border-radius: 5px;
+                display: block;
+                width: 100%;                
             }
-        }
-
-        .button {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #fff;
-            color: #9561e2;
-            font-weight: 700;
-            border-radius: 5px;
-            text-decoration: none;
-            text-transform: uppercase;
         }
     }
 </style>

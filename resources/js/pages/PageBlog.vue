@@ -1,8 +1,8 @@
 <template>
     <div class="blog">
-        <h1>Blog</h1>
 
-        <div class="posts" v-if="!loading && posts.length > 0">
+        <h1 v-if="!loading && posts.length > 0">Blog</h1>
+        <div class="posts container" v-if="!loading && posts.length > 0">
             <blog-card
                 v-for="post in posts" :key="post.id"
                 :post="post"/>
@@ -28,9 +28,6 @@
                 </button>
             </div>
         </div>
-
-        <div v-else-if="!loading && posts.length == 0"></div>
-
         <v-loader v-else></v-loader>
 
     </div>
@@ -84,42 +81,16 @@ export default {
 
 <style lang="scss">
 
-    .posts {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 30px 0;
+    .blog {
+        background-color: rgba(0, 0 , 0, 0.5);
+        border-radius: 15px;
+        padding-bottom: 30px;
 
-        .pagination {
-            width: 100%;
-            text-align: center;
-
-            .pag-button {
-                cursor: pointer;
-                background-color: #9561e2;
-                color: #fff;
-                padding: 5px 10px;
-                margin: 0 5px;
-                border-radius: 5px;
-                font-size: 18px;
-                font-weight: 500;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            .disabled-button {
-                background-color: grey;                
-                cursor: default;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-
-            .focus-button {
-                background-color: dodgerblue;
-            }
+        .posts {
+            display: flex;
+            flex-wrap: wrap;
+            // padding: 30px 0;  
+            
         }
     }
 </style>

@@ -9,8 +9,23 @@
 
 html, body {
     font-family: 'Roboto', sans-serif;
-    height: 100vh;
+    height: 100%;
 }
+
+body {
+    background-image: url('../img/bg.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
+.body-wrapper {
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 100%;
+    padding-bottom: 45px;
+}
+
 .container {
     width: 60%;
     margin: 0 auto;
@@ -23,20 +38,37 @@ button {
     text-shadow: 0px 0px 0px transparent;
 }
 
+.button {
+    margin: 15px auto 0;
+    padding: 10px;
+    color: #fff;
+    background-color: #9561e2;
+    font-weight: 700;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: hsl(264, 69%, 50%);
+        cursor: pointer;
+    }
+}
+
 h1 {
     margin: 15px 0;
     font-size: 48px;
     text-align: center;
+    font-size: 64px;
+    color: #fff;
 } 
 
-h1.big-title {
-    font-size: 64px;
-} 
 h1.post-title {
+    padding: 15px 0;
+    font-size: 32px;
     text-align: left;
 } 
 
-span.pill {
+.pill {
     padding: 5px 10px;
     margin-right: 15px;
     border-radius: 15px;
@@ -44,10 +76,56 @@ span.pill {
     background-color: #9561e2;
 }
 
-span.badge {
+.badge {
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 20px;
     color: #fff;
     background-color: #3490dc;
+
+    &:hover {
+        background-color: hsl(207, 71%, 40%);
+        cursor: pointer;
+    }
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+
+    .pag-button {
+        cursor: pointer;
+        background-color: #9561e2;
+        color: #fff;
+        padding: 5px 10px;
+        margin: 0 5px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 500;
+        box-shadow: 0px 5px 5px rgba(0, 0 , 0, 0.5);
+
+        &:hover {
+            text-decoration: none;
+            background-color: hsl(264, 69%, 50%);
+        }
+
+        &.disabled-button {
+            background-color: grey;
+            color: hsl(0, 0%, 70%);                
+            cursor: default;
+    
+            &:hover {
+                background-color: grey;
+            }
+        }
+    
+        &.focus-button {
+            background-color: dodgerblue;
+
+            &:hover {
+                background-color: hsl(210, 100%, 43%);
+            }
+        }
+    }
+
 }

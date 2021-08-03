@@ -1,5 +1,5 @@
 <template>
-    <div class="container body-wrapper">
+    <div class="body-wrapper">
         <the-header />
         <main>
             <router-view></router-view>
@@ -22,8 +22,6 @@ export default {
     @import '../sass/front/variables.scss';
 
     .body-wrapper {
-        height: 100%;
-
         main {
             padding-top: 45px;
             height: calc(100% - #{$headerHeight});

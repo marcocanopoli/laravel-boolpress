@@ -1,5 +1,5 @@
 <template>
-    <header class="my-header">
+    <header class="my-header container">
         <ul class="menu">
             <li id="logo">
                 <img src="https://www.boolean.careers/images/misc/logo-small.png" alt="logo">
@@ -35,6 +35,7 @@ export default {
         background-color: #9561e2;
         color: #fff;
         border-radius: 0 0 15px 15px;
+        box-shadow: 0px 10px 10px rgba(0, 0 , 0, 0.5);
 
         a {
             text-decoration: none;
