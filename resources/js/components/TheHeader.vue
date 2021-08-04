@@ -1,8 +1,17 @@
 <template>
     <header class="my-header container">
         <ul class="menu">
-            <li id="logo">
-                <img src="https://www.boolean.careers/images/misc/logo-small.png" alt="logo">
+            <li>
+                <router-link 
+                :to="{ name: 'home' }"
+                 id="logo">
+                    <img src="https://www.boolean.careers/images/misc/logo-small.png" alt="logo">
+                </router-link>                
+            </li>
+            <li class="nav-last-left">
+                <router-link :to="{ name: 'home' }">
+                    <h3>BoolPress</h3>
+                </router-link>
             </li>
             <li>
                 <router-link :to="{ name: 'home' }">Home</router-link>
@@ -32,7 +41,7 @@ export default {
     .my-header {
         height: $headerHeight;
         padding: 5px 10px;
-        background-color: #9561e2;
+        background-color: $purple;
         color: #fff;
         border-radius: 0 0 15px 15px;
         box-shadow: 0px 10px 10px rgba(0, 0 , 0, 0.5);
@@ -53,15 +62,19 @@ export default {
             height: 100%;
 
 
-            li {
+            li, #logo {
                 display: flex;
                 align-items: center;
                 height: 100%;
                 padding: 0 5px;
+
+                &.nav-last-left {
+                    flex-grow: 1;
+                }
             }
 
-            #logo {
-                flex-grow: 1;               
+            #logo {         
+                height: 100%; 
 
                 img {
                     height: 80%;

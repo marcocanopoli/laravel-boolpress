@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import BlogCard from '../components/BlogCard.vue';
 import VLoader from '../components/VLoader.vue';
 

@@ -10951,3 +10951,16 @@ a.text-dark:focus {
   color: #fff;
 }
 
+.post-cover-img {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.index-post-cover {
+  height: 50px;
+  width: 100px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+

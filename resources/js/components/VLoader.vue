@@ -21,8 +21,8 @@ export default {
     @import '../../sass/front/_mixins.scss';
     
     .loader {
-        @include flex-center;
-        flex-direction: column;
+        // @include flex-center;
+        // flex-direction: column;
         height: 100%;
     }
 </style>

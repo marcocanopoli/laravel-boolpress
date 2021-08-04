@@ -1,6 +1,6 @@
 <template>
     <section class="not-found">
-        <h1>404<br>Not Found</h1>
+        <h1>404 Not Found</h1>
     </section>
 </template>
 

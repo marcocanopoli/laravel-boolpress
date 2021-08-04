@@ -31,9 +31,9 @@
                 <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id) }}">EDIT</a>
                 <a class="btn btn-secondary ml-2" href="{{ route('admin.posts.index') }}">ALL POSTS</a>
             </div>
-            <div>
-                <img src="{{ $post->imgUrl }}" alt="">
-            </div>
+            @if ($post->cover)
+                <img class="post-cover-img" src="{{ asset('storage/' . $post->cover) }}" alt="">
+            @endif
             <div>{!! $post->content !!}</div>
 
         </div>

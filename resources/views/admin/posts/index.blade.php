@@ -12,6 +12,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Author</th>
+                    <th>Cover</th>
                     <th>Slug</th>
                     <th>Created</th>
                     <th>Category</th>
@@ -25,6 +26,14 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->author }}</td>
+                        {{-- <td>{{ $post->cover ? 'yes' : 'no' }}</td> --}}
+                        <td>
+                            @if ($post->cover)
+                                <img class="index-post-cover" src="{{ asset('storage/' . $post->cover) }}" alt="">
+                            @else
+                                no cover
+                            @endif
+                        </td>
                         <td>{{ $post->slug }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 use App\Post;
 use App\Category;
 use App\Tag;
@@ -14,6 +16,7 @@ class PostController extends Controller
     private $validationRules = [
         'title' => 'required|max:255',
         'author' => 'required|max:255',
+        'cover' => 'nullable|mimes:jpeg,jpg,png,bmp,gif,svg,webp|max:5120',
         'content' => 'required',
         'category_id' => 'nullable|exists:categories,id',
         'tags' => 'exists:tags,id'
@@ -73,16 +76,21 @@ class PostController extends Controller
         $request->validate($this->validationRules);
         
         $newPost = new Post();
-
+        
+        if (array_key_exists('cover', $data)) {
+            $data['cover'] = Storage::disk('public')->put('post_covers', $data['cover']);
+        }
+        
         $slug = $this->getSlug($data);
         $data['slug'] = $slug;
-
+        
         $newPost->fill($data);
         $newPost->save();
 
         if (array_key_exists('tags', $data)) {
             $newPost->tags()->attach($data['tags']);
         }
+        
 
         return redirect()
             ->route('admin.posts.show', $newPost->id)
@@ -124,8 +132,24 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $data = $request->all();
+
+        // dd($data);
         
         $request->validate($this->validationRules);
+
+        if (array_key_exists('cover', $data)) {
+            if($post->cover) {
+                Storage::delete($post->cover);
+            }
+            $data['cover'] = Storage::disk('public')->put('post_covers', $data['cover']);
+        }
+
+        if (array_key_exists('delete-cover', $data)) {
+            if($data['delete-cover'] == 'on') {
+                $data['cover'] = null;
+                Storage::delete($post->cover);
+            }
+        }
         
         if($post->title != $data["title"]) {
             $slug = $this->getSlug($data);
@@ -153,7 +177,11 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {
+    {   
+        if ($post->cover) {
+            Storage::delete($post->cover);
+        }
+
         $post->delete();
 
         return redirect()

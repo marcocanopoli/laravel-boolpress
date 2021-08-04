@@ -2,11 +2,11 @@
     <div class="post">
         <span class="author">{{ post.author }}</span>
         <div class="img-box">
-            <img :src="post.imgUrl" alt="">
+            <img :src="post.cover" :alt="post.title">
             <h3>{{ post.title }}</h3>
         </div>
         <p>{{ getExcerpt(post.content) }}</p>
-        <router-link class="button" :to="{ name: 'blog-post', params: { slug: post.slug} }">Read article</router-link>
+        <router-link class="button bg-indigo" :to="{ name: 'blog-post', params: { slug: post.slug} }">Read article</router-link>
     </div>
 </template>
 
@@ -30,11 +30,12 @@ export default {
 
 <style lang="scss" scoped> 
     .post {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: calc((100% / 3) - 40px);
-        padding: 15px;
+        padding: 15px 15px 65px;
         margin: 0 20px 40px;
         background-color: #fff;
         border-radius: 15px;
@@ -44,7 +45,6 @@ export default {
             font-style: italic;
             color: #000;
         }
-
 
         .img-box {
             position: relative;
@@ -67,6 +67,14 @@ export default {
                 display: block;
                 width: 100%;                
             }
+
+        }
+
+        .button {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 </style>

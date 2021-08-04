@@ -42,14 +42,15 @@ button {
     margin: 15px auto 0;
     padding: 10px;
     color: #fff;
-    background-color: #9561e2;
+    background-color: $purple;
     font-weight: 700;
     border-radius: 5px;
     text-decoration: none;
     text-transform: uppercase;
+    transition: .2s;
 
     &:hover {
-        background-color: hsl(264, 69%, 50%);
+        background-color: $purple-hover;
         cursor: pointer;
     }
 }
@@ -59,13 +60,8 @@ h1 {
     font-size: 48px;
     text-align: center;
     font-size: 64px;
-    color: #fff;
-} 
-
-h1.post-title {
-    padding: 15px 0;
-    font-size: 32px;
-    text-align: left;
+    color: #fff;    
+    text-shadow: 0px 0px 15px rgba(0, 0 , 0, 0.5);
 } 
 
 .pill {
@@ -73,7 +69,12 @@ h1.post-title {
     margin-right: 15px;
     border-radius: 15px;
     color: #fff;
-    background-color: #9561e2;
+    background-color: $purple;
+    transition: .2s;
+
+    &:hover {
+        background-color: $purple-hover;
+    }
 }
 
 .badge {
@@ -81,10 +82,11 @@ h1.post-title {
     border-radius: 10px;
     font-size: 20px;
     color: #fff;
-    background-color: #3490dc;
+    background-color: $teal;
+    transition: .2s;
 
     &:hover {
-        background-color: hsl(207, 71%, 40%);
+        background-color: $teal-hover;
         cursor: pointer;
     }
 }
@@ -95,7 +97,7 @@ h1.post-title {
 
     .pag-button {
         cursor: pointer;
-        background-color: #9561e2;
+        background-color: $purple;
         color: #fff;
         padding: 5px 10px;
         margin: 0 5px;
@@ -103,10 +105,11 @@ h1.post-title {
         font-size: 18px;
         font-weight: 500;
         box-shadow: 0px 5px 5px rgba(0, 0 , 0, 0.5);
+        transition: .2s;
 
         &:hover {
             text-decoration: none;
-            background-color: hsl(264, 69%, 50%);
+            background-color: $purple-hover;
         }
 
         &.disabled-button {
@@ -120,12 +123,40 @@ h1.post-title {
         }
     
         &.focus-button {
-            background-color: dodgerblue;
+            background-color: $indigo;
 
             &:hover {
-                background-color: hsl(210, 100%, 43%);
+                background-color: $indigo-hover;
             }
         }
     }
-
 }
+
+.bg-indigo {
+    background-color: $indigo;
+    
+    &:hover {
+        background-color: $indigo-hover;
+    }
+}
+
+.post-links {
+    list-style: none;
+
+    & li::before {
+      content: "\2023";
+      color: $purple;
+      font-weight: 700;
+      font-size: 36px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-left: -15px;
+      margin-right: 15px;
+    }
+  }
+
+.created-date {
+    margin-left: 15px;
+    color: $teal;
+}
+  

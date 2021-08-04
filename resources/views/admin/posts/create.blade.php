@@ -10,11 +10,11 @@
                 </ul>
             </div>
         @endif --}}
-    <form action="{{ route('admin.posts.store') }}" class="form" method="POST">
+    <form action="{{ route('admin.posts.store') }}" class="form" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title" class="font-weight-bold">Title</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Enter title" value="{{ old('title') }}">
             @error('title')
                 <small class="text-danger">{{ $message }}</small>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            <label for="author">Author</label>
+            <label for="author" class="font-weight-bold">Author</label>
             <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" name="author" placeholder="Enter author" value="{{ old('author') }}">
             @error('author')
             <small class="text-danger">{{ $message }}</small>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            <label for="category_id">Category</label>
+            <label for="category_id" class="font-weight-bold">Category</label>
             <select class="form-control @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
                 <option value="">-- Category --</option>
                 @foreach ($categories as $category)
@@ -61,7 +61,15 @@
         </div>
 
         <div class="form-group">
-            <label for="content">Content</label>
+            <label for="cover" class="font-weight-bold">Cover image (5MB max)</label>
+            <input type="file" class="form-control-file @error('cover') is-invalid @enderror" id="cover" name="cover">
+            @error('cover')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="content" class="font-weight-bold">Content</label>
             <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content"  rows="6" placeholder="Enter post content">{{ old('content') }}</textarea>
             @error('content')
                 <small class="text-danger">{{ $message }}</small>
